@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+body {
+    background:rgb(255, 255, 255);
+    padding: 3em;
+    font-family: 'Rubik', 'Arial';
+    color:rgb(0, 0, 0);
+    direction: rtl;
+}
+
+h1{
+    color: black;
+}
+
+p{
+    color: black;
+}
+
+// colors of website:
+// darkgray=#58575D
+//lightgray= #9E999D
+//blue= 	#B8D3CC
+//light blue= 	#DCF1E4
+//yellow =#FBD912
+//light yellow = #FFEDB4
