@@ -7,6 +7,7 @@ import { RecommComponent } from './recomm/recomm.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     path:"about",
     component: AboutComponent
   },
+  {
+    path:"products",
+    component: ProductsComponent
+  }
 ];
 
 @NgModule({
