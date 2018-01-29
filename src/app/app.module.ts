@@ -9,7 +9,6 @@ import { TreatmentsComponent } from './treatments/treatments.component';
 import { RecommComponent } from './recomm/recomm.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 
 
@@ -21,7 +20,6 @@ import { ProductsComponent } from './products/products.component';
     RecommComponent,
     GalleryComponent,
     ContactComponent,
-    AboutComponent,
     ProductsComponent
   ],
   imports: [
