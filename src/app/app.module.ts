@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {Http, HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-
+import {AppService} from './app.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TreatmentsComponent } from './treatments/treatments.component';
@@ -24,9 +26,11 @@ import { ProductsComponent } from './products/products.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

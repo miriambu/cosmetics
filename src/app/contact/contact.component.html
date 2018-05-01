@@ -1,45 +1,44 @@
-<main role="main"> 
-		
+<main role="main">
+
 
   <hr class="featurette-divider">
   <h1 class="header-title"> צרו קשר </h1>
   <hr>
   <div class="row">
-    
-    
+
+
     	<div class="col-sm-6">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.6913176663274!2d34.81157368522721!3d31.969269981223466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b44f1a59223d%3A0xfee8f9f03f239eff!2z16Yi15Ig15HXoNeV16osINeo15DXqdeV158g15zXpteZ15XXnw!5e0!3m2!1siw!2sil!4v1517168095302" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>    	</div>
 
-    	<div class="col-sm-6">
-    		<form action="form" class="contact-form" method="post">
-	
+    	<form class="col-sm-6" #f="ngForm" (ngSubmit)="sendEmail(f)" novalidate>
+    		<div class="contact-form">
+
 		        <div class="form-group">
-		          <input type="text" class="form-control" id="name" name="nm" placeholder="שם" required="" autofocus="">
+		          <input type="text" class="form-control"  id="name" name="nm" placeholder="שם" required autofocus="" ngModel required #first="ngModel">
 		        </div>
-		    
-		    
+
+
 		        <div class="form-group form_left">
-		          <input type="email" class="form-control" id="email" name="em" placeholder="אימייל" required="">
+		          <input type="email" class="form-control" id="email" name="em" placeholder="אימייל" required ngModel>
 		        </div>
-		    
+
 		      <div class="form-group">
 		           <input type="text" class="form-control" id="phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" placeholder="מס' פלאפון" required="">
 		      </div>
 		      <div class="form-group">
 		      <textarea class="form-control textarea-contact" rows="5" id="comment" name="FB" placeholder="כתבו לי..." required=""></textarea>
 		      <br>
-	      	  <button class="btn btn-default btn-send"> <span class="glyphicon glyphicon-send"></span> שליחה </button>
+	      	  <button class="btn btn-default btn-send" type="submit"> <span class="glyphicon glyphicon-send"></span> שליחה </button>
 		      </div>
-     		</form>
-    	</div>
+     		</div>
+    	</form>
     <!-- </div> -->
   </div>
-
   <div class="container second-portion">
 	<div class="row">
         <!-- Boxes de Acoes -->
     	<div class="col-xs-12 col-sm-6 col-lg-4">
-			<div class="box">							
+			<div class="box">
 				<div class="icon">
 					<div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
 					<div class="info">
@@ -50,15 +49,15 @@
 							<br>
 							<i class="fa fa-globe" aria-hidden="true"></i> www.shirabendor.com
 						</p>
-					
+
 					</div>
 				</div>
 				<div class="space"></div>
-			</div> 
+			</div>
 		</div>
-			
+
         <div class="col-xs-12 col-sm-6 col-lg-4">
-			<div class="box">							
+			<div class="box">
 				<div class="icon">
 					<div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
 					<div class="info">
@@ -67,33 +66,33 @@
 							<!-- <i class="fa fa-mobile" aria-hidden="true"></i> (+91)-9624XXXXX
 							<br>
 							<br> -->
-							<i class="fa fa-mobile" aria-hidden="true"></i>  0502861982 
+							<i class="fa fa-mobile" aria-hidden="true"></i>  0502861982
 						</p>
 					</div>
 				</div>
 				<div class="space"></div>
-			</div> 
+			</div>
 		</div>
-			
+
         <div class="col-xs-12 col-sm-6 col-lg-4">
-			<div class="box">							
+			<div class="box">
 				<div class="icon">
 					<div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
 					<div class="info">
 						<h3 class="title">כתובת</h3>
     					<p>
-							 <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp רחוב צ"ג בנות 13 
+							 <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp רחוב צ"ג בנות 13
 							 ראשון לציון - 360001.
 						</p>
 					</div>
 				</div>
 				<div class="space"></div>
-			</div> 
-		</div>		    
+			</div>
+		</div>
 		<!-- /Boxes de Acoes -->
-		
+
 		<!--My Portfolio  dont Copy this -->
-	    
+
 	</div>
 </div>
 
