@@ -1,45 +1,128 @@
 <hr class="featurette-divider">
 
-<div class="row">
-    <ul class="product-list-vertical">
+<div class="row" ng-app="myApp" ng-controller="myCtrl">
 
-        <li>
+  <ul class="product-list-vertical">
+    <li id="1">
+      <a href="#" class="product-photo">
+        <img src="https://github.com/miriambu/cosmetics/blob/master/src/assets/images/products/cosmetic-614825_1920.jpg?raw=true" height="160" alt="" />
+      </a>
+      <div class="product-details">
+        <h2><a href="#">מי פנים</a></h2>
+        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna.</p>
+        <button click="pay(id)">להזמנה</button>
+        <p class="product-price">59.00</p>
+      </div>
+    </li>
 
-            <a href="#" class="product-photo">
-                <img src="https://github.com/miriambu/cosmetics/blob/master/src/assets/images/products/cosmetic-614825_1920.jpg?raw=true" height="160" alt="" />
-            </a>
-
-            <div class="product-details">
-                
-                <h2><a href="#">מי פנים</a></h2>
-
-                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna.</p>
-
-                <button>להזמנה</button>
-                <p class="product-price">59.00</p>
-            </div>
-
-        </li>
-
-        <li>
-
-            <a href="#" class="product-photo">
-                <img src="https://github.com/miriambu/cosmetics/blob/master/src/assets/images/products/beauty-88015_1920.jpg?raw=true" height="150" width="150" alt="" />
-            </a>
-
-            <div class="product-details">
-            
-                <h2><a href="#">ערכת פדיקור</a></h2>
-
-                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna.</p>
-
-                <button>להזמנה</button>
-                <p class="product-price">99.00</p>
-            </div>
-
-        </li>
-
-    </ul>
+    <li id="2">
+      <a href="#" class="product-photo">
+        <img src="https://github.com/miriambu/cosmetics/blob/master/src/assets/images/products/beauty-88015_1920.jpg?raw=true" height="150" width="150" alt="" />
+      </a>
+      <div class="product-details">
+        <h2><a href="#">ערכת פדיקור</a></h2>
+        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna.</p>
+        <button click="pay(id)">להזמנה</button>
+        <p class="product-price">99.00</p>
+      </div>
+    </li>
+  </ul>
 </div>
+
+//סל הקניות של הקונה
+<nav>
+  <h3>סל הקניות שלי</h3>
+  <div class="items">
+    <ul>
+      <item ng-repeat="item in buyList"
+            product="item"
+            func1="add(item)"
+            func2="dec(item)"
+            func3="remove(item)">
+      </item>
+    </ul>
+  </div>
+  <div class="finallPrice"> סה"כ לתשלום: {{finallPrice}} ₪ </div>
+  <button ng-click="finish()">סיום קניה</button>
+</nav>
+
+//html קובץ הסקריפט בתוך דף ה
+<script>
+  var myApp = angular.module('myApp', []);
+</script>
+<script>
+  myApp.controller('myCtrl', function ($scope) {
+    $scope.buyList = [];
+    $scope.p = {};
+    $scope.finallPrice = 0;
+
+    //קנית מוצר
+    $scope.pay = function (id) {
+      var flag = 0;
+      p = $scope.getProductById(id);
+      p.amount++;
+      $scope.finallPrice += p.price;
+      angular.forEach($scope.buyList, function (item) {
+        if (item.id == p.id)
+          flag++;
+      });
+      if (!flag)
+        $scope.buyList.push(p);
+      count++;
+      console.log($scope.buyList);
+    };
+    //של המוצר idקבלת ה
+    $scope.getProductById = function (id) {
+      var p = {};
+      angular.forEach($scope.myList, function (item) {
+        if (id == item.id)
+          p = item;
+      });
+      return p;
+    };
+    //הוספת מוצר בסל הקניות
+    $scope.add = function (product) {
+      product.amount++;
+      $scope.finallPrice += product.price;
+      alert('המוצר הועלה ב1');
+    };
+    //הורדת מוצר בסל הקניות
+    $scope.dec = function (product) {
+      if (product.amount > 1) {
+        product.amount--;
+        $scope.finallPrice -= product.price;
+        alert('המוצר הורד ב1');
+      }
+    };
+    //הסרת המוצר כולו מסל הקניות
+    $scope.remove = function (product) {
+      $scope.finallPrice -= (product.price * product.amount);
+      product.amount = 0;
+      var flag = 0;
+      var i = -1;
+      angular.forEach($scope.buyList, function (item) {
+        if (!flag) {
+          i++;
+          if (product.id == item.id)
+            flag++;
+        }
+      });
+      $scope.buyList.splice(i, 1);
+      alert('המוצר הוסר בהצלחה');
+    }
+    //סיכום תשלום
+    $scope.change = function () {
+      $scope.finallPrice = 0;
+      angular.forEach($scope.buyList, function (item) {
+        $scope.finallPrice += (item.price * item.amount);
+      });
+    };
+    //סיום קניה
+    $scope.finish = function () {
+      alert('הקניה הסתיימה בהצלחה');
+    };
+  });
+
+</script>
 
 <hr class="featurette-divider">
